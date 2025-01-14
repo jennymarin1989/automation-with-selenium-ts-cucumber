@@ -1,0 +1,20 @@
+{
+  "name": "selenium-typescript-cucumber",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "jenny",
+  "license": "MIT",
+  "scripts": {
+    "test": "cucumber-js test"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^11.2.0",
+    "@types/chai": "^5.0.1",
+    "@types/cucumber": "^7.0.3",
+    "@types/selenium-webdriver": "^4.1.28",
+    "chai": "^5.1.2",
+    "selenium-webdriver": "^4.27.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
