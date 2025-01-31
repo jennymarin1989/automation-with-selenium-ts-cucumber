@@ -3,12 +3,12 @@ import { Builder, WebDriver } from 'selenium-webdriver';
 
 let driver: WebDriver;
 
-const TEN_SECONDS = 10 * 1000;
+const TEN_SECONDS: number = 10 * 10000;
 setDefaultTimeout(TEN_SECONDS);
 
 Before(async () => {
   driver = new Builder().forBrowser('chrome').build(); //create a builder instance for chrome browser
-  global.myDriver = await driver;
+  global.myDriver = driver;
 });
 
 After(async () => {

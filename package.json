@@ -5,7 +5,9 @@
   "author": "jenny",
   "license": "MIT",
   "scripts": {
-    "test": "cucumber-js test"
+    "test:smoke": "cucumber-js test",
+    "test:regression": "cucumber-js test",
+    "test:dev": "cucumber-js test"
   },
   "dependencies": {
     "@cucumber/cucumber": "^11.2.0",
