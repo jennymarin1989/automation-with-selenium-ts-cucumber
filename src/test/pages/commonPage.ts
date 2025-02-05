@@ -9,6 +9,9 @@ export class CommonPage {
 
   visitLink = async (url: string) => {
     await global.myDriver.get(url);
+    const currentURL = await global.myDriver.getCurrentUrl();
+    console.log('***>>> getCurrentUrl: ' + currentURL);
+    this.chai.expect(currentURL).to.include(url);
     await global.myDriver.sleep(5000); //to be removed - only for testing purposes
   };
 
