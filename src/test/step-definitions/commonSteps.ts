@@ -7,12 +7,16 @@ Given('I visit {string}', async (url: string) => {
   await commonPage.visitLink(url);
 });
 
-Given('I check that url includes the correct endpoint {string}', async (url: string) => {
+Then('I check that url includes the correct endpoint {string}', async (url: string) => {
   await commonPage.checkUrlContent(url);
 });
 
-Given('The {string} is visible', async (element: string) => {
-  await commonPage.isElementVisible(element); //find container
+Given('The {string} contains the text {string}', async (element: string, text: string) => {
+  await commonPage.isTextDisplayed(element, text); //find container
+});
+
+Given('The {string} is displayed', async (element: string) => {
+  await commonPage.isElementDisplayed(element); //find container
 });
 
 Then('I click on the {string}', async (elementToClick: string) => {

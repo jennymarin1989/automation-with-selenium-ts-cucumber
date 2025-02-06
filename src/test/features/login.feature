@@ -3,8 +3,9 @@ Feature: Login to Saucedemo
 
     Background: visit the page
       Given I visit "https://www.saucedemo.com"
-      And I check that url includes the correct endpoint "https://www.saucedemo.com"
-      Then The "login-container" is visible
+      Then I check that url includes the correct endpoint "https://www.saucedemo.com"
+      And The "login_logo" contains the text "Swag Labs"
+      And The "login-container" is displayed
 
 @dev     
 @regression
@@ -12,10 +13,10 @@ Feature: Login to Saucedemo
 #  Positive scenario
     Scenario: User can successfully log in with correct credentials
  
-        # Given I enter the username "standard_user"
-        # And I enter the password "secret_sauce"
+        Given I enter the username "standard_user"
+        And I enter the password "secret_sauce"
         When I click on the "login-button"
-#         Then I check the url includes the correct endpoint "https://saucedemo.com/inventory"
+
     
 # # negative scenario  
 #     Scenario: User unsuccessfully log in with incorrect username and correct password

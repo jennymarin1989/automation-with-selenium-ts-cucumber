@@ -1,5 +1,7 @@
 //import { expect } from 'chai';
 
+import { By } from 'selenium-webdriver';
+
 export class CommonPage {
   chai: any;
 
@@ -14,15 +16,20 @@ export class CommonPage {
 
   checkUrlContent = async (url: string) => {
     const currentURL = await global.myDriver.getCurrentUrl();
-    console.log('***>>> getCurrentUrl: ' + currentURL);
     this.chai.expect(currentURL).to.include(url);
   };
 
-  isElementVisible = async (element: string) => {
-    const visibleElement = global.myDriver.findElement({ css: `[data-test=${element}]` }); //find container
-    await global.myDriver.sleep(5000); //to be removed - only for testing purposes
-
+  isElementDisplayed = async (element: string) => {
+    const visibleElement = await global.myDriver.findElement({ css: `[data-test=${element}]` }); //find container
     this.chai.expect(visibleElement).to.exist;
+    await global.myDriver.sleep(5000); //to be removed - only for testing purposes
+  };
+
+  isTextDisplayed = async (element: string, text: string) => {
+    const findTextElement = global.myDriver.findElement({ css: `[class=${element}]` }); //find container
+    const textFromElement = await findTextElement.getText();
+    this.chai.expect(textFromElement).to.equal(text);
+    await global.myDriver.sleep(5000);
   };
 
   clickOnElement = async (elementToClick: string) => {
