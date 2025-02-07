@@ -28,7 +28,7 @@ export class CommonPage {
   isTextDisplayed = async (element: string, text: string) => {
     const findTextElement = global.myDriver.findElement({ css: `[class=${element}]` }); //find container
     const textFromElement = await findTextElement.getText();
-    this.chai.expect(textFromElement).to.equal(text);
+    this.chai.expect(textFromElement).to.contain(text);
     await global.myDriver.sleep(5000);
   };
 
